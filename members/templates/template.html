@@ -1,0 +1,198 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<link rel="stylesheet" href="{% static 'myfirst.css' %}">
+<link rel="stylesheet" href="{% static 'myglobal.css' %}">
+
+<body>
+
+<!-- /testing/ -->
+
+{% include "mymenu.html" with me="USMAN" sponsor="W3SCHOOLS" %}
+
+{% if greeting == 1 %}
+    {% with g="Welcome" %}
+        <h1>{{ g }} {{ firstname }}!</h1>
+    {% endwith %}
+{% elif greeting == 0 %}
+    {% with g="Goodbye" %}
+        <h1>{{ g }} {{ firstname }}!</h1>
+    {% endwith %}
+{% endif %}
+
+{% for x in fruits %}
+    <h2>{{ x }}</h2>
+{% endfor %}
+
+<p>In views.py you can see what the fruits variable looks like.</p>
+
+<ul>
+{% for x in mymembers %}
+    <li>{{ x.firstname }}</li>
+{% endfor %}
+</ul>
+
+<p>In views.py you can see how to import and fetch members from the database.</p>
+
+{% for x in cars %}
+    <h1>{{ x.brand }}</h1>
+    <p>{{ x.model }}</p>
+    <p>{{ x.year }}</p>
+{% endfor %}
+
+<p>In views.py you can see what cars variable looks like.</p>
+
+{% for x in mymembers %}
+    <h2>{{ x.id }}. {{ x.firstname }} {{ x.lastname }}</h2>
+{% endfor %}
+
+{% for x in mymembers reversed %}
+    <h2>{{ x.id }}. {{ x.firstname }} {{ x.lastname }}</h2>
+{% endfor %}
+
+<p>In views.py you can see how to import and fetch members from the database.</p>
+
+<ul>
+    {% for x in emptysetobject %}
+        <li>{{ x.firstname }}</li>
+    {% empty %}
+        <li>No member</li>
+    {% endfor %}
+</ul>
+
+<p>In views.py you can see the emptytestobject.</p>
+
+<ul>
+    {% for x in fruits %}
+        <li>{{ forloop.counter }} {{ x }}</li>
+    {% endfor %}
+</ul>
+
+<ul>
+    {% for x in fruits %}
+        <li>{{ forloop.revcounter0 }} {{ x }}</li>
+    {% endfor %}
+</ul>
+
+<p>The queryset object:</p>
+{{ mymembers }}
+
+<p>Loop through the items:</p>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+    </tr>
+    {% for x in members %}
+        <tr>
+            <td>{{ x.id }}</td>
+                <td>{{ x.firstname }}</td>
+            <td>{{ x.lastname }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<p>The queryset object:</p>
+{{ members_1 }}
+
+<p>Loop through the items:</p>
+
+<table border='1'>
+    {% for x in members_1 %}
+        <tr>
+            <td>{{ x }}</td>
+        </tr>
+    {% endfor %}
+</table>
+
+<p>The queryset object:</p>
+
+{{ members_2 }}
+
+<p>Loop through the items:</p>
+
+<table border='1'>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+    </tr>
+    {% for x in members_2 %}
+    <tr>
+        <td>{{ x.id }}</td>
+        <td>{{ x.firstname }}</td>
+        <td>{{ x.lastname }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>The queryset object:</p>
+
+{{ members_3 }}
+
+<p>Loop through the items:</p>
+
+<table border='1'>
+    <tr>
+        <th>ID</th>
+        <th>Firstname</th>
+        <th>Lastname</th>
+    </tr>
+    {% for x in members_3 %}
+    <tr>
+        <td>{{ x.id }}</td>
+        <td>{{ x.firstname }}</td>
+        <td>{{ x.lastname }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<p>The queryset object:</p>
+
+{{ members_4 }}
+
+<p>Loop through the items:</p>
+
+<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in members_4 %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<p>The queryset object:</p>
+
+{{ members_5 }}
+
+<p>Loop through the items:</p>
+
+<table border='1'>
+  <tr>
+    <th>ID</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  {% for x in members_5 %}
+    <tr>
+      <td>{{ x.id }}</td>
+      <td>{{ x.firstname }}</td>
+      <td>{{ x.lastname }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+{% include 'footer.html' %}
+
+</body>
+</html>
