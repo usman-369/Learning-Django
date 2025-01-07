@@ -1,2 +1,2 @@
 # Learning-Django
-Learning backend developement with Django.
+Learning backend development with Django.
