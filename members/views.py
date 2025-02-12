@@ -41,16 +41,16 @@ def testing(request):
     mymembers = Member.objects.all().values()
     mydata = Member.objects.all()
     mydata_1 = Member.objects.values_list('firstname')
-    mydata_2 = Member.objects.filter(firstname='Saima').values()
+    mydata_2 = Member.objects.filter(firstname='<name>').values()
     # In SQL, the above _-^-_ statement would be written like this:
-    # SELECT * FROM members WHERE firstname = 'Saima';
-    mydata_3 = Member.objects.filter(lastname='Moazzam', id=3).values()
+    # SELECT * FROM members WHERE firstname = '<name>';
+    mydata_3 = Member.objects.filter(lastname='<name>', id=3).values()
     # In SQL, the above _-^-_ statement would be written like this:
-    # SELECT * FROM members WHERE lastname = 'Moazzam' AND id = 3;
-    mydata_4 = Member.objects.filter(firstname='Mishkat').values() | Member.objects.filter(firstname='Hamza').values()
-    mydata_5 = Member.objects.filter(Q(firstname='Moazzam') | Q(firstname='Hamza')).values()
+    # SELECT * FROM members WHERE lastname = '<name>' AND id = 3;
+    mydata_4 = Member.objects.filter(firstname='<name>').values() | Member.objects.filter(firstname='<name>').values()
+    mydata_5 = Member.objects.filter(Q(firstname='<name>') | Q(firstname='<name>')).values()
     # In SQL, the above _-^-_ statement would be written like this:
-    # SELECT * FROM members WHERE firstname = 'Moazzam' OR firstname = 'Hamza';
+    # SELECT * FROM members WHERE firstname = '<name>' OR firstname = '<name>';
     template = loader.get_template('template.html')
     context = {
         'firstname': 'Usman',
